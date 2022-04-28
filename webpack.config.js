@@ -20,7 +20,6 @@ module.exports = {
 
     open: true,
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
@@ -70,7 +69,5 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
-    symlinks: false,
-    cacheWithContext: false,
   },
 }
