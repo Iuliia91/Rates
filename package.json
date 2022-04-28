@@ -1,0 +1,19 @@
+{
+  "name": "rates",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iuliia91/Rates.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Iuliia91/Rates/issues"
+  },
+  "homepage": "https://github.com/Iuliia91/Rates#readme"
+}
