@@ -1,3 +1,5 @@
 export const DIRECTION_TYPE = {
-  myprofil: 'myprofil',
+  myprofil: '/myprofil',
+  login: '/login',
+  createrate: '/createrate',
 }
