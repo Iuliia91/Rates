@@ -6,7 +6,7 @@ const StyledHeaderMenu = styled.div`
   display: flex;
   flex-direction: row;
   a {
-    padding-right: 25px;
+    padding-right: 24px;
     text-decoration: none;
     color: white;
     font-size: 24px;

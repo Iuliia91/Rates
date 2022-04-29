@@ -20,13 +20,11 @@ const StyledMainLayouts = styled.div`
     background-color: rgb(237, 28, 36);
 
     section {
-      margin: auto;
-
+      margin: auto 30px;
       a {
         text-decoration: none;
         color: white;
         font-size: 24px;
-        margin: auto;
       }
     }
   }
@@ -38,6 +36,14 @@ const StyledMainLayouts = styled.div`
   footer {
     background-color: rgb(214, 214, 214);
     height: 60px;
+    position: relative;
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) }
+    }
   }
 `
 const MainLayout = () => {
@@ -54,7 +60,9 @@ const MainLayout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      <footer>
+        <p>@PrusakovaIuliia</p>
+      </footer>
     </StyledMainLayouts>
   )
 }

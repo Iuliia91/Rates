@@ -12,10 +12,8 @@ const App = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <BrowserRouter>
-          <RootRouter>
-            <GlobalStyledProvide />
-            <MainLayout />
-          </RootRouter>
+          <GlobalStyledProvide />
+          <RootRouter />
         </BrowserRouter>
       </PersistGate>
     </Provider>
