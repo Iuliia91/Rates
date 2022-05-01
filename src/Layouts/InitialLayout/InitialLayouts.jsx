@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Emblema from 'assets/images/emblema.png'
+import img4 from 'assets/images/imgSlider/img4.jpg'
+import Slider from './Components/Slider'
+import emblema from 'assets/images/44996.jpg'
 import { Outlet, NavLink, Link } from 'react-router-dom'
 import { DIRECTION_TYPE } from 'Route/directionTypes'
 import Zoom from 'react-reveal/Zoom'
 import SectionOfImages from './Components/SectionOfImiges'
+import DetailOfHorse from './Components/DetailOfHorse'
 const StyledInitialLayouts = styled.div`
-  max-width: 100%;
+  max-width: 1300px;
   margin: auto;
   height: 100%;
   position: relative;
@@ -19,9 +22,12 @@ const StyledInitialLayouts = styled.div`
     justify-content: space-between;
     background-color: rgb(237, 28, 36);
     align-items: center;
-    img {
-      width: 400px;
-      height: 290px;
+
+    & img {
+      width: 100px;
+      height: 90px;
+      border-radius: 50%;
+      margin-left: 20px;
     }
     a {
       margin-right: 30px;
@@ -37,14 +43,18 @@ const StyledInitialLayouts = styled.div`
   }
 
   main {
+    display: block;
+    position: relative;
     height: 400px;
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    margin: 15%;
+
+    background-image: url(${img4});
+    overflow: hidden;
+    background-size: cover;
+
+    // background: rgb(33, 60, 187);
+    width: 100%;
     div {
-      margin-top: 50px;
-      //weigth: 50%;
+      background: rgba(33, 60, 187, 0.5);
     }
   }
 `
@@ -54,7 +64,7 @@ const InitialLayouts = () => {
     <StyledInitialLayouts>
       <header>
         <Zoom>
-          <img src={Emblema} alt="emblema" />
+          <img src={emblema} alt="emblema" />
         </Zoom>
 
         <div>
@@ -62,18 +72,24 @@ const InitialLayouts = () => {
           <div>Registrate</div>
         </div>
       </header>
-      <main>
+
+      <main className="main">
         <div>
-          <p>
+          <Slider />{' '}
+        </div>
+        {/*  <p>
             With <span>Bet300</span>
           </p>{' '}
           <p>you can made</p>
           <p>money</p>
-        </div>
+       
         <div>
           <SectionOfImages />
-        </div>
+        </div>*/}
       </main>
+      <section>
+        <DetailOfHorse />
+      </section>
     </StyledInitialLayouts>
   )
 }
