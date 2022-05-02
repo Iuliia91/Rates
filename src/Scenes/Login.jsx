@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Horses from '../assets/images/hors.png'
+
 const StyledLogin = styled.div`
   background-color: white;
   display: block;
@@ -10,8 +10,11 @@ const StyledLogin = styled.div`
 const Login = () => {
   return (
     <StyledLogin>
-      <img src={Horses} />
-      <div>Login</div>
+      <header>
+        <p>Welcome back to HorsRate</p>
+        <span>X</span>
+      </header>
+      <main></main>
     </StyledLogin>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import img4 from 'assets/images/imgSlider/img4.jpg'
 import Slider from './Components/Slider'
@@ -7,7 +7,12 @@ import { Outlet, NavLink, Link } from 'react-router-dom'
 import { DIRECTION_TYPE } from 'Route/directionTypes'
 import Zoom from 'react-reveal/Zoom'
 import SectionOfImages from './Components/SectionOfImiges'
-import DetailOfHorse from './Components/DetailOfHorse'
+import DetailOfRate from './Components/DetailOfRate'
+import horse from 'assets/images/horse.png'
+import statistic from 'assets/images/statistic.png'
+import Information from './Components/Information'
+import Registration from 'Scenes/Registration'
+import { ModalContext } from 'HOC/GlobalModalProvider'
 const StyledInitialLayouts = styled.div`
   max-width: 1300px;
   margin: auto;
@@ -57,9 +62,32 @@ const StyledInitialLayouts = styled.div`
       background: rgba(33, 60, 187, 0.5);
     }
   }
+
+  & section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    justify-content: space-evenly;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: grb(75, 75, 75);
+    p {
+      text-align: center;
+      color: grey;
+
+      margin: 0;
+    }
+  }
 `
 
 const InitialLayouts = () => {
+  const [show, setShow] = useState()
+  const openModal = useContext(ModalContext)
   return (
     <StyledInitialLayouts>
       <header>
@@ -69,27 +97,32 @@ const InitialLayouts = () => {
 
         <div>
           <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
-          <div>Registrate</div>
+          <button
+            onClick={() => {
+              openModal(<Registration />)
+            }}
+          >
+            Registrate
+          </button>
         </div>
       </header>
 
       <main className="main">
         <div>
-          <Slider />{' '}
+          <Slider />
         </div>
-        {/*  <p>
-            With <span>Bet300</span>
-          </p>{' '}
-          <p>you can made</p>
-          <p>money</p>
-       
-        <div>
-          <SectionOfImages />
-        </div>*/}
+        <Outlet />
       </main>
       <section>
-        <DetailOfHorse />
+        <DetailOfRate horse={horse} text={'Our horses'} />
+        <DetailOfRate horse={statistic} text={'Horse statistic'} />
       </section>
+      <section>
+        <Information />
+      </section>
+      <footer>
+        <p>@2022PrusakovaIuliia</p>
+      </footer>
     </StyledInitialLayouts>
   )
 }

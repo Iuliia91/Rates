@@ -4,7 +4,8 @@
   "description": "description",
   "main": "index.js",
   "scripts": {
-    "start": "webpack server"
+    "start": "webpack server",
+    "Server": "json-server ./Server/db.json -m ./node_modules/json-server-auth --port 3000"
   },
   "repository": {
     "type": "git",

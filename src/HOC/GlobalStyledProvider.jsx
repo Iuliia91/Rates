@@ -1,6 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-
+import playRegular from '../assets/fonts/Play-Regular.ttf'
 const GlobalStyled = createGlobalStyle`
 body {
   margin: 0 auto;
@@ -13,10 +13,10 @@ body {
   box-sizing: border-box;
  
 }
-/*@font-face{
-  font-family:"spartanmedium";
-  src:url(${spartanmediumFontURL})
-}*/
+@font-face{
+  font-family:"playRegular";
+  src:url(${playRegular})
+}
 
 `
 const GlobalStyledProvide = () => {

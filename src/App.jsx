@@ -4,16 +4,17 @@ import { store, persistor } from 'store/initStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import { BrowserRouter } from 'react-router-dom'
 import RootRouter from 'Route/RootRoute'
-import MainLayout from 'Layouts/MainLauot'
+import GlobalModalProvider from 'HOC/GlobalModalProvider'
 import GlobalStyledProvide from 'HOC/GlobalStyledProvider'
 const App = () => {
-  // return <RootRouter />
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <BrowserRouter>
           <GlobalStyledProvide />
-          <RootRouter />
+          <GlobalModalProvider>
+            <RootRouter />
+          </GlobalModalProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

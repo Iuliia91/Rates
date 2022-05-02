@@ -37,6 +37,7 @@ const StyledSlider = styled.div`
     width: 45%;
     top: 0;
     right: 0;
+
     width: 100%;
     margin: 0;
     padding: 0;
@@ -52,7 +53,7 @@ const StyledSlider = styled.div`
 
     .parallelogram {
       width: 200px;
-      height: 70px;
+
       background-color: rgb(237, 28, 36);
       margin-bottom: 20px;
     }
@@ -67,7 +68,7 @@ const StyledSlider = styled.div`
     margin-top: 30px;
     p {
       font-size: 30px;
-
+      font-family: 'playRegular';
       color: white;
       padding: 0;
       text-align: center;
@@ -76,7 +77,7 @@ const StyledSlider = styled.div`
   }
   p {
     color: white;
-
+    font-family: 'playRegular';
     margin: 20px auto 40px;
     font-size: 50px;
     text-align: center;
