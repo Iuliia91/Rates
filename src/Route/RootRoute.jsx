@@ -10,7 +10,7 @@ const RootRouter = () => {
   return (
     <Routes>
       <Route index element={<InitialLayouts />} />
-      {/* <Route path={DIRECTION_TYPE.login} element={<Login />} />*/}
+      <Route path={DIRECTION_TYPE.login} element={<Login />} />
 
       <Route path="/" element={<MainLayout />}>
         <Route path={DIRECTION_TYPE.myprofil} element={<MyProfil />} />

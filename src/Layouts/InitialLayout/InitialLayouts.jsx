@@ -51,7 +51,6 @@ const StyledInitialLayouts = styled.div`
     display: block;
     position: relative;
     height: 400px;
-
     background-image: url(${img4});
     overflow: hidden;
     background-size: cover;
@@ -86,8 +85,8 @@ const StyledInitialLayouts = styled.div`
 `
 
 const InitialLayouts = () => {
-  const [show, setShow] = useState()
   const openModal = useContext(ModalContext)
+
   return (
     <StyledInitialLayouts>
       <header>
@@ -99,7 +98,7 @@ const InitialLayouts = () => {
           <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
           <button
             onClick={() => {
-              openModal(<Registration />)
+              console.log('hi')
             }}
           >
             Registrate

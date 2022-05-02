@@ -98,19 +98,22 @@ const img = [
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  useEffect(() => {
+  /*useEffect(() => {
     setInterval(() => {
       setActiveIndex((current) =>
         current === img.length - 1 ? 0 : current + 1
       )
     }, 5000)
     return () => clearInterval()
-  }, [])
+  }, [])*/
   return (
     <StyledSlider>
       <div className="slider_item">
         {img.map((item, index) => (
-          <div className={activeIndex === index ? 'active' : 'nonActive'}>
+          <div
+            key={index}
+            className={activeIndex === index ? 'active' : 'nonActive'}
+          >
             <div>
               <Flip left>
                 <div className="parallelogram">

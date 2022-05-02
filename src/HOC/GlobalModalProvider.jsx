@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export const ModalContext = React.createContext()
+export const ModalContext = React.createContext(false)
 
 const StyledGlobalModalProvider = styled.div`
   position: absolute;
@@ -14,21 +14,12 @@ const StyledGlobalModalProvider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /*.modal {
-    position:relativ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:#FFFFFF;
-    box-shadow: 0px 15px 50px rgba(51, 114, 25, 0.2);
-    border-radius: 10px;
-    );
-
+  .modal {
+    padding: 10px 20px;
     border-radius: 20px;
     width: 50%;
     height: 400px;
-    position: absolute;
-  }*/
+  }
 `
 
 const GlobalModalProvider = (props) => {
