@@ -6,7 +6,6 @@ import emblema from 'assets/images/44996.jpg'
 import { Outlet, NavLink, Link } from 'react-router-dom'
 import { DIRECTION_TYPE } from 'Route/directionTypes'
 import Zoom from 'react-reveal/Zoom'
-import SectionOfImages from './Components/SectionOfImiges'
 import DetailOfRate from './Components/DetailOfRate'
 import horse from 'assets/images/horse.png'
 import statistic from 'assets/images/statistic.png'
@@ -34,11 +33,14 @@ const StyledInitialLayouts = styled.div`
       border-radius: 50%;
       margin-left: 20px;
     }
-    a {
+    a,
+    button {
       margin-right: 30px;
       text-decoration: none;
       color: white;
       font-size: 24px;
+      background-color: transparent;
+      border: none;
     }
     & div {
       display: flex;
@@ -98,7 +100,21 @@ const InitialLayouts = () => {
           <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
           <button
             onClick={() => {
-              console.log('hi')
+              openModal(
+                <div className="modalContext">
+                  <header>
+                    <p>Registration</p>
+                    <span
+                      onClick={() => {
+                        openModal()
+                      }}
+                    >
+                      X
+                    </span>
+                  </header>
+                  <Registration close={() => openModal()} />
+                </div>
+              )
             }}
           >
             Registrate

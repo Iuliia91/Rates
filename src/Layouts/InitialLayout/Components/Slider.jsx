@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
@@ -8,6 +8,8 @@ import img1 from 'assets/images/imgSlider/img1.jpg'
 import img2 from 'assets/images/imgSlider/img2.jpg'
 import img3 from 'assets/images/imgSlider/img3.jpg'
 import img4 from 'assets/images/imgSlider/img4.jpg'
+import Registration from 'Scenes/Registration'
+import { ModalContext } from 'HOC/GlobalModalProvider'
 const StyledSlider = styled.div`
   position: relative;
   width: 100%;
@@ -97,7 +99,7 @@ const img = [
 ]
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0)
-
+  const openModal = useContext(ModalContext)
   /*useEffect(() => {
     setInterval(() => {
       setActiveIndex((current) =>
@@ -126,7 +128,27 @@ const Slider = () => {
               </Fade>
 
               <div className="block3">
-                <p>Registration</p>
+                <p
+                  onClick={() => {
+                    openModal(
+                      <div>
+                        <header>
+                          <p>Registration</p>
+                          <span
+                            onClick={() => {
+                              openModal()
+                            }}
+                          >
+                            X
+                          </span>
+                        </header>
+                        <Registration close={() => openModal()} />
+                      </div>
+                    )
+                  }}
+                >
+                  Registration
+                </p>
               </div>
             </div>
 
