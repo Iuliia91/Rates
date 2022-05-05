@@ -21,7 +21,6 @@ const StyledInformation = styled.div`
       flex-direction: column;
       justify-content: flex-start;
       margin: 0;
-      // padding: 0;
 
       p {
         margin: 6px;

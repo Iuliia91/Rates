@@ -16,9 +16,9 @@ import Registration from 'Scenes/Registration'
 import { ModalContext } from 'HOC/GlobalModalProvider'
 
 const StyledInitialLayouts = styled.div`
-  max-width: 1300px;
+  max-width: 1500px;
   margin: auto;
-  height: 100%;
+
   position: relative;
   background-color: rgb(246, 246, 246);
   header {
@@ -55,7 +55,7 @@ const StyledInitialLayouts = styled.div`
   main {
     display: block;
     position: relative;
-    height: 400px;
+    height: 26em;
     background-image: url(${img4});
     overflow: hidden;
     background-size: cover;
@@ -74,6 +74,16 @@ const StyledInitialLayouts = styled.div`
     justify-content: space-evenly;
   }
 
+  .text {
+    margin: 20px auto;
+    background-color: rgb(246, 246, 246);
+    p {
+      padding: 20px;
+      width: 90%;
+      text-align: center;
+      font-size: 30px;
+    }
+  }
   footer {
     position: fixed;
     left: 0;
@@ -136,6 +146,14 @@ const InitialLayouts = () => {
       </section>
       <section>
         <Information />
+      </section>
+      <section className="text">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis neque
+          minus ullam repellat repudiandae nobis explicabo sequi molestias
+          tempora quo eveniet, excepturi nihil iure! Debitis doloremque porro
+          hic accusamus ipsum!
+        </p>
       </section>
       <footer>
         <p>@2022PrusakovaIuliia</p>

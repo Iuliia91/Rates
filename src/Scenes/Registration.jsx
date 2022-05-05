@@ -4,27 +4,16 @@ import Server from 'api/server.instance'
 import styled from 'styled-components'
 import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
-import { ModalContext } from 'HOC/GlobalModalProvider'
-import { NavLink } from 'react-router-dom'
-import { DIRECTION_TYPE } from 'Route/directionTypes'
 import { validateEmail } from '../helpers/emailvalidation'
 import server from 'api/server.instance'
 import { userLoggedIn } from 'store/actions/userAction'
 const StyledRegistrationHolder = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
   background: rgb(239, 239, 239);
-  max-width: 700px;
-  width: 100%;
+
+  width: 65%;
   border-radius: 10px;
   overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  height: 28em;
-
+  position: relative;
   div {
     span {
       position: absolute;
@@ -49,8 +38,8 @@ const StyledRegistrationHolder = styled.div`
       text-align: center;
     }
     button {
-      margin-top: 1em;
-
+      margin: 1em 0;
+      padding-bottom: 20px;
       background: red;
       padding: 20px;
       border: none;
@@ -58,6 +47,10 @@ const StyledRegistrationHolder = styled.div`
       font-size: 24px;
       border-radius: 10px;
       font-family: playRegular;
+    }
+
+    button:hover {
+      background: green;
     }
   }
 `

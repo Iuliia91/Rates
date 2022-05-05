@@ -13,7 +13,7 @@ import { ModalContext } from 'HOC/GlobalModalProvider'
 const StyledSlider = styled.div`
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 100%;
   margin: auto;
   box-sizing: border-box;
   display: flex;
@@ -23,6 +23,7 @@ const StyledSlider = styled.div`
   .slider_item {
     display: flex;
     flex-direction: row;
+    height: 900px;
   }
   img {
     width: 40%;
