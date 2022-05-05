@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
-
+import { ModalContext } from 'HOC/GlobalModalProvider'
+import ListOFHorses from './ListOfHorses'
 const StyledDetailOfHorse = styled.div`
   display: flex;
   flex-direction: row;
   width: 33%;
   justify-content: space-between;
+  margin: auto;
+  text-align: center;
   img {
     width: 210px;
     height: 120px;
@@ -37,12 +40,27 @@ const StyledDetailOfHorse = styled.div`
 `
 
 const DetailOfRate = (props) => {
+  const [textInformation, setTextInformation] = useState(props.text)
+  const openModal = useContext(ModalContext)
+  const handleOpenDetail = () => {
+    if (textInformation == 'Our horses') {
+      console.log('horses')
+      return openModal(
+        <ListOFHorses
+          close={() => {
+            openModal()
+          }}
+        />
+      )
+    }
+  }
+
   return (
     <StyledDetailOfHorse>
       <img src={props.horse} />
       <div>
         <p>{props.text}</p>
-        <button>
+        <button onClick={handleOpenDetail}>
           <p>Look</p>
         </button>
       </div>

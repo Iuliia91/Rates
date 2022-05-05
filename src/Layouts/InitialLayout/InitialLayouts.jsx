@@ -12,6 +12,7 @@ import statistic from 'assets/images/statistic.png'
 import Information from './Components/Information'
 import Registration from 'Scenes/Registration'
 import { ModalContext } from 'HOC/GlobalModalProvider'
+
 const StyledInitialLayouts = styled.div`
   max-width: 1300px;
   margin: auto;
@@ -89,6 +90,9 @@ const StyledInitialLayouts = styled.div`
 const InitialLayouts = () => {
   const openModal = useContext(ModalContext)
 
+  const handleOpenListOfHors = () => {
+    return openModal()
+  }
   return (
     <StyledInitialLayouts>
       <header>
@@ -100,21 +104,7 @@ const InitialLayouts = () => {
           <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
           <button
             onClick={() => {
-              openModal(
-                <div className="modalContext">
-                  <header>
-                    <p>Registration</p>
-                    <span
-                      onClick={() => {
-                        openModal()
-                      }}
-                    >
-                      X
-                    </span>
-                  </header>
-                  <Registration close={() => openModal()} />
-                </div>
-              )
+              openModal(<Registration />)
             }}
           >
             Registrate
@@ -126,7 +116,6 @@ const InitialLayouts = () => {
         <div>
           <Slider />
         </div>
-        <Outlet />
       </main>
       <section>
         <DetailOfRate horse={horse} text={'Our horses'} />

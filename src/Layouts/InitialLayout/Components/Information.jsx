@@ -24,8 +24,9 @@ const StyledInformation = styled.div`
       // padding: 0;
 
       p {
-        margin: 3px;
+        margin: 6px;
         font-family: playRegular;
+        font-size: 20px;
       }
 
       img {

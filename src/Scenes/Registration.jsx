@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
 import { ModalContext } from 'HOC/GlobalModalProvider'
+import { NavLink } from 'react-router-dom'
+import { DIRECTION_TYPE } from 'Route/directionTypes'
+import { validateEmail } from '../helpers/emailvalidation'
+import server from 'api/server.instance'
 const StyledRegistrationHolder = styled.div``
 
 const initialData = {
@@ -13,12 +17,6 @@ const initialData = {
 }
 
 const Registration = (props) => {
-  function validateEmail(email) {
-    const re =
-      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-    return re.test(String(email).toLowerCase())
-  }
-
   return (
     <StyledRegistrationHolder>
       <main>
@@ -37,7 +35,16 @@ const Registration = (props) => {
             return errorObj
           }}
           onSubmit={(formValues, { resetForm }) => {
-            setSubmit(formValues)
+            console.log(formValues)
+            server
+              .post('/user', {
+                email: formValues.email,
+                password: formValues.password,
+                userName: formValues.userName,
+              })
+              .then((response) => {
+                console.log(response.data.accessToken)
+              })
           }}
         >
           <Form>
@@ -54,9 +61,7 @@ const Registration = (props) => {
             <div className="input">
               <FormikInput name="email" type="text" placeholder="Your email" />
             </div>
-            <button type="submit">
-              <div>Registrated</div>
-            </button>
+            <button type="submit">Registrated</button>
           </Form>
         </Formik>
       </main>

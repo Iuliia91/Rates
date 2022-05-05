@@ -4,24 +4,22 @@ import styled from 'styled-components'
 export const ModalContext = React.createContext(false)
 
 const StyledGlobalModalProvider = styled.div`
-  margin: auto;
+  margin: 0 auto;
   position: absolute;
   overflow: hidden;
   top: 0;
-  left: 0;
+
   z-index: 9000;
-  width: 100%;
+  max-width: 1300px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   .modal {
-    margin: auto;
+    margin: 0 auto;
     background: white;
-    padding: 10px 20px;
     border-radius: 20px;
-    width: 500px;
-    height: 400px;
+    width: 80%;
   }
 
   .modalContext {
