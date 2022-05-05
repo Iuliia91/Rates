@@ -48,7 +48,8 @@ const StyledMainLayouts = styled.div`
 `
 const MainLayout = () => {
   return (
-    <StyledMainLayouts>
+    <div>Hi</div>
+    /*<StyledMainLayouts>
       <header>
         <section>
           <HeaderMenu />
@@ -63,7 +64,7 @@ const MainLayout = () => {
       <footer>
         <p>@PrusakovaIuliia</p>
       </footer>
-    </StyledMainLayouts>
+    </StyledMainLayouts>*/
   )
 }
 

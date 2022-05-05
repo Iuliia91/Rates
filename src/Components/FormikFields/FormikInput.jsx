@@ -7,23 +7,34 @@ const StyledFormikInput = styled.div`
     outline: none;
     border: none;
     border: 1px solid;
-    box-shadow: -4px 4px 10px rgba(199, 211, 222);
+    width: 80%;
     border-color: ${(props) => (props.error ? 'red' : 'white')};
     padding: 15px 60px;
-    margin: 5px;
-    border-radius: 20px;
+    margin: 10px;
+    //border-radius: 20px;
+    ::placeholder {
+      color: #ddd;
+      opacity: 1;
+    }
   }
   input:hover {
-    box-shadow: 5px 4px 10px rgb(199, 211, 222);
-  }
-  input:: placeholder {
-    color: grey;
+    background: rgba(33, 10, 50, 0.2);
   }
 
+  &:focus-within {
+    border-color: green;
+  }
   .errorMessagerHolder {
-    position: absolute;
+    color: #d93025;
+    font-size: 20px;
+    // padding-left: 8px;
+    //position: absolute;
+    right: 0;
+    width: 100%;
+    //bottom: -1em;
+    /* position: absolute;
     padding-top: -10px;
-    color: red;
+    color: red;*/
   }
 `
 

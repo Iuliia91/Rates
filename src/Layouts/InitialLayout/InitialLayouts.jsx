@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import img4 from 'assets/images/imgSlider/img4.jpg'
+import { useSelector } from 'react-redux'
 import Slider from './Components/Slider'
 import emblema from 'assets/images/44996.jpg'
-import { Outlet, NavLink, Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Login from 'Scenes/Login'
 import { DIRECTION_TYPE } from 'Route/directionTypes'
 import Zoom from 'react-reveal/Zoom'
 import DetailOfRate from './Components/DetailOfRate'
@@ -89,9 +91,14 @@ const StyledInitialLayouts = styled.div`
 
 const InitialLayouts = () => {
   const openModal = useContext(ModalContext)
-
-  const handleOpenListOfHors = () => {
-    return openModal()
+  const user = useSelector((state) => state.userReducer)
+  const navigate = useNavigate()
+  const handleOpenLoginWindow = () => {
+    if (user.isLoggedIn) {
+      navigate('/myprofil')
+    } else {
+      openModal(<Login onClose={() => openModal()} />)
+    }
   }
   return (
     <StyledInitialLayouts>
@@ -101,10 +108,16 @@ const InitialLayouts = () => {
         </Zoom>
 
         <div>
-          <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
           <button
             onClick={() => {
-              openModal(<Registration />)
+              handleOpenLoginWindow()
+            }}
+          >
+            Login
+          </button>
+          <button
+            onClick={() => {
+              openModal(<Registration onClose={() => openModal()} />)
             }}
           >
             Registrate
