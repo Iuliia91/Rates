@@ -14,6 +14,11 @@ import statistic from 'assets/images/statistic.png'
 import Information from './Components/Information'
 import Registration from 'Scenes/Registration'
 import { ModalContext } from 'HOC/GlobalModalProvider'
+import old from 'assets/images/6420.png'
+import VISA from 'assets/images/List.png'
+import AboutProject from './Components/AboutProject'
+
+//import SectionText from './Components/SectionText'
 
 const StyledInitialLayouts = styled.div`
   max-width: 1500px;
@@ -55,7 +60,7 @@ const StyledInitialLayouts = styled.div`
   main {
     display: block;
     position: relative;
-    height: 26em;
+    height: 36em;
     background-image: url(${img4});
     overflow: hidden;
     background-size: cover;
@@ -75,21 +80,37 @@ const StyledInitialLayouts = styled.div`
   }
 
   .text {
-    margin: 20px auto;
+    
+    margin: 30px auto;
     background-color: rgb(246, 246, 246);
+    
+
+ 
     p {
-      padding: 20px;
-      width: 90%;
+      font-size: 18px;
+      margin: 6px 0;
+      color grey
+    }
+
+    img {
+      heigth: 60px;
+      width: 60px;
       text-align: center;
-      font-size: 30px;
+      
     }
   }
+.section{
+  width:80%;
+  margin:auto;
+}
+  
   footer {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background: grb(75, 75, 75);
+    padding:60px 0 10px 0;
+    
     p {
       text-align: center;
       color: grey;
@@ -110,6 +131,15 @@ const InitialLayouts = () => {
       openModal(<Login onClose={() => openModal()} />)
     }
   }
+
+  const handleOpenRegistrationWindow = () => {
+    if (user.isLoggedIn) {
+      navigate('/myprofil')
+    } else {
+      openModal(<Registration onClose={() => openModal()} />)
+    }
+  }
+
   return (
     <StyledInitialLayouts>
       <header>
@@ -127,7 +157,7 @@ const InitialLayouts = () => {
           </button>
           <button
             onClick={() => {
-              openModal(<Registration onClose={() => openModal()} />)
+              handleOpenRegistrationWindow()
             }}
           >
             Registrate
@@ -144,19 +174,18 @@ const InitialLayouts = () => {
         <DetailOfRate horse={horse} text={'Our horses'} />
         <DetailOfRate horse={statistic} text={'Horse statistic'} />
       </section>
+      <section></section>
+      <section className="section">
+        <AboutProject />
+
+        {/* */}
+      </section>
       <section>
         <Information />
       </section>
-      <section className="text">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis neque
-          minus ullam repellat repudiandae nobis explicabo sequi molestias
-          tempora quo eveniet, excepturi nihil iure! Debitis doloremque porro
-          hic accusamus ipsum!
-        </p>
-      </section>
       <footer>
         <p>@2022PrusakovaIuliia</p>
+        <p>iuliiaprusakova@gmail.com</p>
       </footer>
     </StyledInitialLayouts>
   )

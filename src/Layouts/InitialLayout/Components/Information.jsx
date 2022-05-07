@@ -1,37 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import list from 'assets/images/List.png'
+import yers from 'assets/images/6420.png'
 import redbull from 'assets/images/redbull.png'
-import Fiorentina from 'assets/images/Fiorentina.svg'
+
 const StyledInformation = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  background: rgb(239, 239, 239);
-  margin-bottom: 30px;
-  position: relative;
   div {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-around;
-    margin: 40px 0;
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      margin: 0;
+    justify-content: space-evently;
 
-      p {
-        margin: 6px;
-        font-family: playRegular;
-        font-size: 20px;
-      }
+    position: relative;
 
-      img {
-        width: 40px;
-        padding: 4px;
-      }
+    img {
+      width: 200px;
+      height: 100px;
+      padding-right: 4em;
     }
   }
 `
@@ -39,25 +24,11 @@ const StyledInformation = styled.div`
 const Information = () => {
   return (
     <StyledInformation>
-      <div>
-        <section>
-          <h1>Information</h1>
-          <p>Registration</p>
-          <p>Choose horse</p>
-          <p>Choose time</p>
-          <p>WIN</p>
-          <p></p>
-        </section>
-        <section>
-          <h1>Rules</h1>
-          <p>You 18+</p>
-          <p>Security</p>
-        </section>
-        <section>
-          <h1>Our partner</h1>
-          <img src={redbull} />
-          <img src={Fiorentina} />
-        </section>
+      <div className="img">
+        <img src={list} />
+
+        <img src={yers} />
+        <img src={redbull} />
       </div>
     </StyledInformation>
   )

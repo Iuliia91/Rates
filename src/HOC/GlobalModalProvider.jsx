@@ -12,6 +12,7 @@ const StyledGlobalModalProvider = styled.div`
   z-index: 1000;
   background: rgb(0, 0, 0, 0.5);
   .modal {
+    max-width: 900px;
     width: 50%;
     position: absolute;
     display: flex;

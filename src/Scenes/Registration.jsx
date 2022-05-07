@@ -10,7 +10,7 @@ import { userLoggedIn } from 'store/actions/userAction'
 const StyledRegistrationHolder = styled.div`
   background: rgb(239, 239, 239);
 
-  width: 65%;
+  width: 70%;
   border-radius: 10px;
   overflow: hidden;
   position: relative;

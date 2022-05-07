@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, NavLink, Link } from 'react-router-dom'
 import HeaderMenu from 'Components/HeaderMenu'
-import { DIRECTION_TYPE } from 'Route/directionTypes'
-import Login from '../Scenes/Login'
-
+import Zoom from 'react-reveal/Zoom'
+import emblema from 'assets/images/44996.jpg'
 const StyledMainLayouts = styled.div`
-  max-width: 1300px;
+
   margin: auto;
   height: 100%;
   background-color: rgb(246, 246, 246);
@@ -26,9 +25,15 @@ const StyledMainLayouts = styled.div`
         color: white;
         font-size: 24px;
       }
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-left: 20px;
+      }
     }
   }
-  main {
+ main {
     width: 100%;
     height: calc(100vh - 120px);
     overflow: auto;
@@ -48,14 +53,16 @@ const StyledMainLayouts = styled.div`
 `
 const MainLayout = () => {
   return (
-    <div>Hi</div>
-    /*<StyledMainLayouts>
+    <StyledMainLayouts>
       <header>
         <section>
           <HeaderMenu />
         </section>
         <section>
-          <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
+          {' '}
+          <Zoom>
+            <img src={emblema} alt="emblema" />
+          </Zoom>
         </section>
       </header>
       <main>
@@ -64,7 +71,7 @@ const MainLayout = () => {
       <footer>
         <p>@PrusakovaIuliia</p>
       </footer>
-    </StyledMainLayouts>*/
+    </StyledMainLayouts>
   )
 }
 

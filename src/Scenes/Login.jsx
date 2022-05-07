@@ -6,7 +6,7 @@ const StyledLogin = styled.div`
 
 background: rgb(239, 239, 239);
 
-width: 55%;
+width: 70%;
 border-radius: 10px;
 overflow: hidden;
 position: relative;

@@ -47,6 +47,12 @@
       "password": "$2a$10$BkChOprOi2OI.uVvKQVqaeYMPMNPCmNP6lqfs7w1I0O0NbjVnUPHK",
       "userName": "Anna",
       "id": 8
+    },
+    {
+      "email": "anita91@gmail.com",
+      "password": "$2a$10$pFl6GCRHwvIw/umv4aJPvOdNNwGRJqwWA2lttdj/3FyRlc2EP5koe",
+      "userName": "Anita",
+      "id": 9
     }
   ]
 }

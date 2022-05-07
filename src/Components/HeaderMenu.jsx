@@ -11,14 +11,24 @@ const StyledHeaderMenu = styled.div`
     color: white;
     font-size: 24px;
   }
+
+  .active {
+    color: green;
+  }
 `
 
 const HeaderMenu = () => {
   return (
     <StyledHeaderMenu>
-      <NavLink to={DIRECTION_TYPE.myprofil}>My Profil</NavLink>
-      <NavLink to={DIRECTION_TYPE.createrate}>Create rates</NavLink>
-      <NavLink to={DIRECTION_TYPE.myprofil}>History of rates</NavLink>
+      <NavLink to={DIRECTION_TYPE.myprofil} activeclassname={'active'}>
+        My Profil
+      </NavLink>
+      <NavLink to={DIRECTION_TYPE.createrate} activeclassname={'active'}>
+        Create rates
+      </NavLink>
+      <NavLink to={DIRECTION_TYPE.history} activeclassname={'active'}>
+        History of rates
+      </NavLink>
     </StyledHeaderMenu>
   )
 }

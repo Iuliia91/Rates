@@ -26,7 +26,7 @@ const StyledSlider = styled.div`
     height: 900px;
   }
   img {
-    width: 40%;
+    width: 50%;
     padding: 40px;
     margin: auto 0;
     border-radius: 40px;
@@ -37,10 +37,10 @@ const StyledSlider = styled.div`
 
   .active {
     position: absolute;
-    width: 45%;
+
     top: 0;
     right: 0;
-
+    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -131,21 +131,7 @@ const Slider = () => {
               <div className="block3">
                 <p
                   onClick={() => {
-                    openModal(
-                      <div>
-                        <header>
-                          <p>Registration</p>
-                          <span
-                            onClick={() => {
-                              openModal()
-                            }}
-                          >
-                            X
-                          </span>
-                        </header>
-                        <Registration close={() => openModal()} />
-                      </div>
-                    )
+                    openModal(<Registration onClose={() => openModal()} />)
                   }}
                 >
                   Registration
