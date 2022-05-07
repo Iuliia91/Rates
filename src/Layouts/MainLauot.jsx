@@ -13,30 +13,28 @@ const StyledMainLayouts = styled.div`
   header {
     display: flex;
     width: 100%;
-    height: 60px;
+    height: 100px;
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(237, 28, 36);
 
     section {
       margin: auto 30px;
-      a {
-        text-decoration: none;
-        color: white;
-        font-size: 24px;
-      }
+      
       img{
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         margin-left: 20px;
       }
     }
   }
  main {
-    width: 100%;
+    width: 85%;
     height: calc(100vh - 120px);
     overflow: auto;
+    margin:auto;
+    padding-top:100px;
   }
   footer {
     background-color: rgb(214, 214, 214);

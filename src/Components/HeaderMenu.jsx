@@ -9,7 +9,8 @@ const StyledHeaderMenu = styled.div`
     padding-right: 24px;
     text-decoration: none;
     color: white;
-    font-size: 24px;
+    font-size: 30px;
+    font-family: 'playRegular';
   }
 
   .active {
