@@ -77,6 +77,7 @@ const StyledInitialLayouts = styled.div`
     flex-direction: row;
     margin-top: 100px;
     justify-content: space-evenly;
+   
   }
 
   .text {
@@ -104,6 +105,9 @@ const StyledInitialLayouts = styled.div`
   margin:auto;
 }
   
+section{
+  width:100%;
+}
   footer {
     left: 0;
     bottom: 0;

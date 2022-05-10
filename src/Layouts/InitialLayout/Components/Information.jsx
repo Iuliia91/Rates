@@ -3,8 +3,13 @@ import styled from 'styled-components'
 import list from 'assets/images/List.png'
 import yers from 'assets/images/6420.png'
 import redbull from 'assets/images/redbull.png'
-
+import Marquee from 'react-fast-marquee'
 const StyledInformation = styled.div`
+  max-width: 1300px;
+  margin: auto;
+  .overlay {
+    background: red;
+  }
   div {
     display: flex;
     flex-direction: row;
@@ -14,8 +19,8 @@ const StyledInformation = styled.div`
     position: relative;
 
     img {
-      width: 200px;
-      height: 100px;
+      width: 150px;
+      height: 70px;
       padding-right: 4em;
     }
   }
@@ -25,10 +30,13 @@ const Information = () => {
   return (
     <StyledInformation>
       <div className="img">
-        <img src={list} />
-
-        <img src={yers} />
-        <img src={redbull} />
+        <Marquee ctyle={{ background: 'red' }}>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui at
+            sapiente magnam neque placeat delectus adipisci, illo accusantium
+            distinctio voluptas!
+          </p>
+        </Marquee>
       </div>
     </StyledInformation>
   )
