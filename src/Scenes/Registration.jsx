@@ -7,6 +7,7 @@ import { Formik, Form } from 'formik'
 import { validateEmail } from '../helpers/emailvalidation'
 import server from 'api/server.instance'
 import { userLoggedIn } from 'store/actions/userAction'
+import axios from 'axios'
 const StyledRegistrationHolder = styled.div`
   background: rgb(239, 239, 239);
 
@@ -54,11 +55,27 @@ const StyledRegistrationHolder = styled.div`
     }
   }
 `
+const registartion = async (email, password, userName) => {
+  try {
+    const response = await axios.post(
+      'http://localhost:5000/api/auth/registration',
+      {
+        email,
+        password,
+
+        userName,
+      }
+    )
+    return response
+  } catch (e) {
+    alert(e.response.data.message)
+  }
+}
 
 const initialData = {
-  userName: '',
-  email: '',
-  password: '',
+  userName: 'anna',
+  email: 'annaprusakova@gmail.com',
+  password: 'Zaq123Xsw456',
 }
 
 const Registration = ({ onClose }) => {
@@ -92,22 +109,20 @@ const Registration = ({ onClose }) => {
         onSubmit={(formValues, { resetForm }) => {
           console.log(formValues)
 
-          server
-            .post('/register', {
-              email: formValues.email,
-              password: formValues.password,
-              userName: formValues.userName,
-            })
+          registartion(
+            formValues.email,
+            formValues.password,
+            formValues.userName
+          )
             .then((response) => {
+              console.log(response)
               dispatch(
                 userLoggedIn({
-                  userName: response.data.user.userName,
-                  userEmail: response.data.user.email,
-                  password: response.data.user.password,
-                  isLoggedIn: response.data.accessToken,
+                  isLoggedIn: true,
                 })
               )
             })
+            .catch((error) => console.log(error))
             .then(() => onClose(false))
         }}
       >

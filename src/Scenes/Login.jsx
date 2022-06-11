@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
+import axios from 'axios'
+import { userLoggedIn } from 'store/actions/userAction'
 const StyledLogin = styled.div`
 
 background: rgb(239, 239, 239);
@@ -51,12 +54,28 @@ div{
       background: green;
     }
 `
+const login = async (email, password, userName) => {
+  try {
+    const response = await axios.post('http://localhost:5000/api/auth/login', {
+      email,
+      password,
+      userName,
+    })
+    return response
+  } catch (e) {
+    console.log(e)
+    alert(e.response.data.message)
+  }
+}
+
 const initialData = {
-  userName: '',
-  password: '',
+  userName: 'anna',
+  email: 'annaprusakova@gmail.com',
+  password: 'Zaq123Xsw456',
 }
 
 const Login = ({ onClose }) => {
+  const dispatch = useDispatch()
   return (
     <StyledLogin>
       <div>
@@ -82,22 +101,19 @@ const Login = ({ onClose }) => {
           return errorObj
         }}
         onSubmit={(formValues, { resetForm }) => {
-          console.log(formValues)
-
-          server
-            .post('/login', {
-              password: formValues.password,
-              userName: formValues.userName,
-            })
+          login(formValues.email, formValues.password, formValues.userName)
             .then((response) => {
+              console.log(response)
               dispatch(
                 userLoggedIn({
+                  token: response.data.token,
                   userName: response.data.user.userName,
                   password: response.data.user.password,
-                  isLoggedIn: response.data.accessToken,
+                  isLoggedIn: response.data.email,
                 })
               )
             })
+            .catch((error) => console.log(error))
             .then(() => onClose(false))
         }}
       >
@@ -111,6 +127,9 @@ const Login = ({ onClose }) => {
           </div>
           <div className="input">
             <FormikInput name="password" type="text" placeholder="password" />
+          </div>
+          <div className="input">
+            <FormikInput name="email" type="text" placeholder="email" />
           </div>
           <div>
             <button type="submit">Sing In</button>

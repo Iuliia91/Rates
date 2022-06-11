@@ -127,6 +127,7 @@ section{
 const InitialLayouts = () => {
   const openModal = useContext(ModalContext)
   const user = useSelector((state) => state.userReducer)
+  console.log(user)
   const navigate = useNavigate()
   const handleOpenLoginWindow = () => {
     if (user.isLoggedIn) {
