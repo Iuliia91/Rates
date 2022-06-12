@@ -131,7 +131,8 @@ const InitialLayouts = () => {
   const navigate = useNavigate()
   const handleOpenLoginWindow = () => {
     if (user.isLoggedIn) {
-      navigate('/myprofil')
+      console.log('user Login')
+      return navigate('/myprofil')
     } else {
       openModal(<Login onClose={() => openModal()} />)
     }

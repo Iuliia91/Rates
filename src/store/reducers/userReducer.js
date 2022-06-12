@@ -3,16 +3,16 @@ import { userLoggedIn, userLoggedOut } from '../actions/userAction'
 import { createReducer } from '@reduxjs/toolkit'
 
 const initialState = {
-  userName: '',
-  userEmail: '',
-  password: '',
+  user: {},
+
   isLoggedIn: false,
 }
 
 const userReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(userLoggedIn, (state, action) => {
-      state.userName = action.payload.userName
+      console.log(action.payload)
+      state.userName = { ...action.payload }
       state.userEmail = action.payload.userEmail
       state.password = action.payload.password
       state.isLoggedIn = action.payload.isLoggedIn

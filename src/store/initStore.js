@@ -11,10 +11,6 @@ const middleWare = [thunk]
 const middleWareEnhancer = applyMiddleware(...middleWare)
 const enhasers = [middleWareEnhancer]
 
-const composedEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(...enhasers)
-  : compose([...enhasers])
-
 const persistConfig = {
   key: 'root',
   storage,
@@ -24,10 +20,9 @@ const persisterRootReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persisterRootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  devTools: process.env.NODE_ENV !== 'production',
+  enhancers: enhasers,
 })
 
 export const persistor = persistStore(store)

@@ -5,6 +5,7 @@ import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
 import axios from 'axios'
 import { userLoggedIn } from 'store/actions/userAction'
+import { Link, useNavigate } from 'react-router-dom'
 const StyledLogin = styled.div`
 
 background: rgb(239, 239, 239);
@@ -76,6 +77,7 @@ const initialData = {
 
 const Login = ({ onClose }) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   return (
     <StyledLogin>
       <div>
@@ -103,18 +105,21 @@ const Login = ({ onClose }) => {
         onSubmit={(formValues, { resetForm }) => {
           login(formValues.email, formValues.password, formValues.userName)
             .then((response) => {
-              console.log(response)
+              console.log(response.data)
               dispatch(
                 userLoggedIn({
                   token: response.data.token,
                   userName: response.data.user.userName,
-                  password: response.data.user.password,
-                  isLoggedIn: response.data.email,
+                  email: response.data.user.email,
+                  isLoggedIn: true,
                 })
               )
+              if (response.data.token) {
+                return navigate('/myprofil')
+              }
             })
-            .catch((error) => console.log(error))
             .then(() => onClose(false))
+            .catch((error) => console.log(error))
         }}
       >
         <Form>

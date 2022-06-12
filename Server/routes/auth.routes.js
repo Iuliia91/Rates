@@ -39,7 +39,7 @@ router.post(
       const user = new User({ userName, email, password: hashPassword })
 
       await user.save()
-
+      console.log(response)
       return response.json({ message: 'User was created' })
     } catch (e) {
       console.log(e)
@@ -55,7 +55,7 @@ router.post(
     try {
       const { email, password, userName } = request.body
       const user = await User.findOne({ email })
-
+      console.log(user)
       if (!user) {
         return response.status(404).json({ message: 'User not found' })
       }
@@ -75,7 +75,6 @@ router.post(
           id: user.id,
           email: user.email,
           userName: user.userName,
-
           diskSpace: user.diskSpace,
           userSpace: user.usedSpace,
           avatar: user.avatar,

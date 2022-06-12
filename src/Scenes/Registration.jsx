@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { useDispatch } from 'react-redux'
-import Server from 'api/server.instance'
+
 import styled from 'styled-components'
 import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
 import { validateEmail } from '../helpers/emailvalidation'
-import server from 'api/server.instance'
+import { Link, useNavigate } from 'react-router-dom'
 import { userLoggedIn } from 'store/actions/userAction'
 import axios from 'axios'
 const StyledRegistrationHolder = styled.div`
@@ -80,7 +80,7 @@ const initialData = {
 
 const Registration = ({ onClose }) => {
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   return (
     <StyledRegistrationHolder>
       <div>
@@ -107,8 +107,6 @@ const Registration = ({ onClose }) => {
           return errorObj
         }}
         onSubmit={(formValues, { resetForm }) => {
-          console.log(formValues)
-
           registartion(
             formValues.email,
             formValues.password,
@@ -116,11 +114,15 @@ const Registration = ({ onClose }) => {
           )
             .then((response) => {
               console.log(response)
+
               dispatch(
                 userLoggedIn({
                   isLoggedIn: true,
                 })
               )
+              if (response) {
+                return navigate('/myprofil')
+              }
             })
             .catch((error) => console.log(error))
             .then(() => onClose(false))
