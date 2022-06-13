@@ -6,7 +6,7 @@ import FormikInput from 'Components/formikFields/FormikInput'
 import { Formik, Form } from 'formik'
 import { validateEmail } from '../helpers/emailvalidation'
 import { Link, useNavigate } from 'react-router-dom'
-import { userLoggedIn } from 'store/actions/userAction'
+import { userRegistration } from 'store/actions/userAction'
 import axios from 'axios'
 const StyledRegistrationHolder = styled.div`
   background: rgb(239, 239, 239);
@@ -55,22 +55,6 @@ const StyledRegistrationHolder = styled.div`
     }
   }
 `
-const registartion = async (email, password, userName) => {
-  try {
-    const response = await axios.post(
-      'http://localhost:5000/api/auth/registration',
-      {
-        email,
-        password,
-
-        userName,
-      }
-    )
-    return response
-  } catch (e) {
-    alert(e.response.data.message)
-  }
-}
 
 const initialData = {
   userName: 'anna',
@@ -107,25 +91,13 @@ const Registration = ({ onClose }) => {
           return errorObj
         }}
         onSubmit={(formValues, { resetForm }) => {
-          registartion(
-            formValues.email,
-            formValues.password,
-            formValues.userName
-          )
-            .then((response) => {
-              console.log(response)
-
-              dispatch(
-                userLoggedIn({
-                  isLoggedIn: true,
-                })
-              )
-              if (response) {
-                return navigate('/myprofil')
-              }
-            })
-            .catch((error) => console.log(error))
-            .then(() => onClose(false))
+          const obj = { ...formValues }
+          dispatch(userRegistration(obj)).then((response) => {
+            if (response.payload !== undefined) {
+              onClose(false)
+              return navigate('/myprofil')
+            }
+          })
         }}
       >
         <Form>

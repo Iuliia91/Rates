@@ -6,6 +6,7 @@ import { Formik, Form } from 'formik'
 import axios from 'axios'
 import { userLoggedIn } from 'store/actions/userAction'
 import { Link, useNavigate } from 'react-router-dom'
+
 const StyledLogin = styled.div`
 
 background: rgb(239, 239, 239);
@@ -55,19 +56,6 @@ div{
       background: green;
     }
 `
-const login = async (email, password, userName) => {
-  try {
-    const response = await axios.post('http://localhost:5000/api/auth/login', {
-      email,
-      password,
-      userName,
-    })
-    return response
-  } catch (e) {
-    console.log(e)
-    alert(e.response.data.message)
-  }
-}
 
 const initialData = {
   userName: 'anna',
@@ -103,23 +91,18 @@ const Login = ({ onClose }) => {
           return errorObj
         }}
         onSubmit={(formValues, { resetForm }) => {
-          login(formValues.email, formValues.password, formValues.userName)
+          const obj = { ...formValues }
+          dispatch(userLoggedIn(obj))
             .then((response) => {
-              console.log(response.data)
-              dispatch(
-                userLoggedIn({
-                  token: response.data.token,
-                  userName: response.data.user.userName,
-                  email: response.data.user.email,
-                  isLoggedIn: true,
-                })
-              )
-              if (response.data.token) {
+              console.log(response)
+              if (response.payload) {
+                onClose(false)
                 return navigate('/myprofil')
               }
             })
-            .then(() => onClose(false))
-            .catch((error) => console.log(error))
+            .catch((e) => {
+              alert(e.response.data.message)
+            })
         }}
       >
         <Form>
