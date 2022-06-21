@@ -28,7 +28,7 @@ export const userLoggedIn = createAsyncThunk(
 )
 
 export const userRegistration = createAsyncThunk(
-  'user_registrated',
+  USER_ACTION.registration,
 
   async (item) => {
     try {
