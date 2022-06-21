@@ -23,7 +23,7 @@ import AboutProject from './Components/AboutProject'
 const StyledInitialLayouts = styled.div`
   max-width: 1500px;
   margin: auto;
-
+  height: 100vh;
   position: relative;
   background-color: rgb(246, 246, 246);
   header {

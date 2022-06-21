@@ -101,14 +101,14 @@ const img = [
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const openModal = useContext(ModalContext)
-  /* useEffect(() => {
+  useEffect(() => {
     setInterval(() => {
       setActiveIndex((current) =>
         current === img.length - 1 ? 0 : current + 1
       )
     }, 5000)
     return () => clearInterval()
-  }, [])*/
+  }, [])
   return (
     <StyledSlider>
       <div className="slider_item">

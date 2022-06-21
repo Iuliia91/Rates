@@ -3,6 +3,9 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const config = require('config')
 const jwt = require('jsonwebtoken')
+const authMiddleware = require('../middleware/auth.middleware')
+const fileService = require('../services/fileService')
+const File = require('../models/File')
 const router = new Router()
 const { check, validationResult } = require('express-validator')
 
@@ -17,7 +20,6 @@ router.post(
   ],
   async (request, response) => {
     try {
-      console.log(request.body)
       const errors = validationResult(request)
 
       if (errors.isEmpty()) {
@@ -39,10 +41,18 @@ router.post(
       const user = new User({ userName, email, password: hashPassword })
 
       await user.save()
-      console.log(response)
-      return response.json({ message: 'User was created' })
+      await fileService.createDir(new File({ user: user.id, name: '' }))
+      return response.json({
+        user: {
+          id: user.id,
+          email: user.email,
+          userName: user.userName,
+          diskSpace: user.diskSpace,
+          userSpace: user.usedSpace,
+          avatar: user.avatar,
+        },
+      })
     } catch (e) {
-      console.log(e)
       response.send({ message: 'Server error' })
     }
   }

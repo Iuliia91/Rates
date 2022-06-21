@@ -1,5 +1,6 @@
 {
   "serverPort": 5000,
   "dbUrl": "mongodb+srv://Iuliia:Zxcvbnm1234567@cluster0.wlnre.mongodb.net/Cluster0?retryWrites=true&w=majority",
-  "secretKey": "mern-secket-key"
+  "secretKey": "mern-secket-key",
+  "filePath": "C:\\Users\\iulii\\OneDrive\\Рабочий стол\\Projects\\Rates\\Server\\files"
 }
