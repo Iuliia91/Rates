@@ -3,3 +3,7 @@ export const USER_ACTION = {
   loggOut: 'user_logged_out',
   registration: 'user_registrated',
 }
+
+export const CreateRates = {
+  userCreateRate: 'user_create_rates',
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import img4 from 'assets/images/imgSlider/img4.jpg'
 import { useSelector } from 'react-redux'
@@ -6,7 +6,7 @@ import Slider from './Components/Slider'
 import emblema from 'assets/images/44996.jpg'
 import { Link, useNavigate } from 'react-router-dom'
 import Login from 'Scenes/Login'
-import { DIRECTION_TYPE } from 'Route/directionTypes'
+
 import Zoom from 'react-reveal/Zoom'
 import DetailOfRate from './Components/DetailOfRate'
 import horse from 'assets/images/horse.png'
@@ -18,14 +18,13 @@ import old from 'assets/images/6420.png'
 import VISA from 'assets/images/List.png'
 import AboutProject from './Components/AboutProject'
 
-//import SectionText from './Components/SectionText'
-
 const StyledInitialLayouts = styled.div`
   max-width: 1500px;
   margin: auto;
-  height: 100vh;
+ 
+  height: 100%;
   position: relative;
-  background-color: rgb(246, 246, 246);
+  
   header {
     display: flex;
     width: 100%;
@@ -60,7 +59,7 @@ const StyledInitialLayouts = styled.div`
   main {
     display: block;
     position: relative;
-    height: 36em;
+    height: 45em;
     background-image: url(${img4});
     overflow: hidden;
     background-size: cover;
@@ -109,8 +108,7 @@ section{
   width:100%;
 }
   footer {
-    left: 0;
-    bottom: 0;
+   
     width: 100%;
     background: grb(75, 75, 75);
     padding:60px 0 10px 0;

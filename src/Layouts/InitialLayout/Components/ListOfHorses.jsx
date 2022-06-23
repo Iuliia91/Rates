@@ -49,27 +49,39 @@ const StyledDiv = styled.div`
 `
 
 const listOFHorses = [
-  { name: 'Black Horse', images: Black, id: 1 },
-  { name: 'Green Horse', images: Green, id: 2 },
-  { name: 'Red Horse', images: Red, id: 3 },
-  { name: 'Pink Horse', images: Pink, id: 4 },
-  { name: 'Blue Horse', images: Blue, id: 5 },
-  { name: 'Yellow Horse', images: Yellow, id: 6 },
+  { name: 'Black Horse', images: Black, id: 'Black' },
+  { name: 'Green Horse', images: Green, id: 'Green' },
+  { name: 'Red Horse', images: Red, id: 'Red' },
+  { name: 'Pink Horse', images: Pink, id: 'Pink' },
+  { name: 'Blue Horse', images: Blue, id: 'Blue' },
+  { name: 'Yellow Horse', images: Yellow, id: 'Yellow' },
 ]
+
+export const Horses = (props) => {
+  const handleID = (id) => {
+    console.log(id)
+  }
+  return (
+    <>
+      {' '}
+      {listOFHorses.map((item, index) => (
+        <div key={item.id}>
+          <div className="main" onClick={() => props.handleID(item.id)}>
+            <img src={item.images} />
+            <p>{item.name}</p>
+          </div>
+        </div>
+      ))}
+    </>
+  )
+}
 
 const ListOFHorses = (props) => {
   return (
     <StyledDiv>
       <StyledListOfHorses>
         <span onClick={props.close}>Close</span>
-        {listOFHorses.map((item, index) => (
-          <div key={item.id}>
-            <div className="main">
-              <img src={item.images} />
-              <p>{item.name}</p>
-            </div>
-          </div>
-        ))}
+        <Horses />
       </StyledListOfHorses>
     </StyledDiv>
   )

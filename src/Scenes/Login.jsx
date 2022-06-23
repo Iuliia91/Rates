@@ -94,7 +94,6 @@ const Login = ({ onClose }) => {
           const obj = { ...formValues }
           dispatch(userLoggedIn(obj))
             .then((response) => {
-              console.log(response)
               if (response.payload) {
                 onClose(false)
                 return navigate('/myprofil')

@@ -1,40 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import logo from 'assets/images/6420.png'
-const StyledAboutUser = styled.div``
 
-const StyledAvatar = styled.div``
-
-const Avatar = () => {
-  const [img, setImg] = useState(null)
-  const [avatar, setAvatar] = useState(null)
-  console.log(avatar)
-  return (
-    <StyledAvatar>
-      <div>
-        {avatar ? (
-          <img src={`${avatar}`} alt="foto" />
-        ) : (
-          <img src={`${logo}`} />
-        )}
-      </div>
-      <input type="file" onChange={(e) => setImg(e.target.files[0].name)} />
-      <button onClick={() => setAvatar(img)}>Change</button>
-    </StyledAvatar>
-  )
-}
+const StyledAboutUser = styled.div`
+  .welcome > p {
+    text-align: center;
+    font-size: 35px;
+    font-family: 'playRegular';
+    span {
+      font-size: 40px;
+      text-transform: capitalize;
+    }
+  }
+`
 
 const AboutUser = () => {
   const [foto, setFoto] = useState('')
   const user = useSelector((state) => state.userReducer)
-  console.log(foto)
+  const rates = useSelector((state) => state.createRates.rates)
+  console.log(rates)
   return (
     <StyledAboutUser>
-      <Avatar />
-      <div>{user.userName}</div>
-      <div>{user.userEmail}</div>
-      <input type="file" onChange={() => setFoto(value)} value={foto} />
+      <section className="welcome">
+        <p>
+          Hello, <span>{user.user.userName}</span>
+        </p>
+        {rates.length === 0 ? (
+          <p>Your dont have any history of rates</p>
+        ) : (
+          <p>You won</p>
+        )}
+      </section>
+      <div></div>
     </StyledAboutUser>
   )
 }

@@ -36,6 +36,9 @@ const StyledAboutProject = styled.div`
   .conteent {
    // width: 50%;
   }
+  .conteent>p{
+    font-size:22px;
+  }
 `
 
 const AboutProject = () => {

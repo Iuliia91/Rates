@@ -19,7 +19,7 @@ const StyledDetailOfHorse = styled.div`
     display: flex;
   }
   p {
-    font-size: 20px;
+    font-size: 35px;
     font-weight: 900;
     color: grb(75, 75, 75);
     font-family: playRegular;

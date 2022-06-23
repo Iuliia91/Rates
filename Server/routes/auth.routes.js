@@ -8,6 +8,7 @@ const fileService = require('../services/fileService')
 const File = require('../models/File')
 const router = new Router()
 const { check, validationResult } = require('express-validator')
+const { request } = require('express')
 
 router.post(
   '/registration',
@@ -96,4 +97,5 @@ router.post(
     }
   }
 )
+
 module.exports = router
