@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import img4 from 'assets/images/imgSlider/img4.jpg'
+import { useSelector } from 'react-redux'
 import Slider from './Components/Slider'
 import emblema from 'assets/images/44996.jpg'
-import { Outlet, NavLink, Link } from 'react-router-dom'
-import { DIRECTION_TYPE } from 'Route/directionTypes'
+import { Link, useNavigate } from 'react-router-dom'
+import Login from 'Scenes/Login'
+
 import Zoom from 'react-reveal/Zoom'
 import DetailOfRate from './Components/DetailOfRate'
 import horse from 'assets/images/horse.png'
@@ -12,13 +14,17 @@ import statistic from 'assets/images/statistic.png'
 import Information from './Components/Information'
 import Registration from 'Scenes/Registration'
 import { ModalContext } from 'HOC/GlobalModalProvider'
+import old from 'assets/images/6420.png'
+import VISA from 'assets/images/List.png'
+import AboutProject from './Components/AboutProject'
 
 const StyledInitialLayouts = styled.div`
-  max-width: 1300px;
+  max-width: 1500px;
   margin: auto;
+ 
   height: 100%;
   position: relative;
-  background-color: rgb(246, 246, 246);
+  
   header {
     display: flex;
     width: 100%;
@@ -53,7 +59,7 @@ const StyledInitialLayouts = styled.div`
   main {
     display: block;
     position: relative;
-    height: 400px;
+    height: 45em;
     background-image: url(${img4});
     overflow: hidden;
     background-size: cover;
@@ -70,14 +76,43 @@ const StyledInitialLayouts = styled.div`
     flex-direction: row;
     margin-top: 100px;
     justify-content: space-evenly;
+   
   }
 
+  .text {
+    
+    margin: 30px auto;
+    background-color: rgb(246, 246, 246);
+    
+
+ 
+    p {
+      font-size: 18px;
+      margin: 6px 0;
+      color grey
+    }
+
+    img {
+      heigth: 60px;
+      width: 60px;
+      text-align: center;
+      
+    }
+  }
+.section{
+  width:80%;
+  margin:auto;
+}
+  
+section{
+  width:100%;
+}
   footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+   
     width: 100%;
     background: grb(75, 75, 75);
+    padding:60px 0 10px 0;
+    
     p {
       text-align: center;
       color: grey;
@@ -89,10 +124,26 @@ const StyledInitialLayouts = styled.div`
 
 const InitialLayouts = () => {
   const openModal = useContext(ModalContext)
+  const user = useSelector((state) => state.userReducer)
 
-  const handleOpenListOfHors = () => {
-    return openModal()
+  const navigate = useNavigate()
+  const handleOpenLoginWindow = () => {
+    if (user.isLoggedIn) {
+      console.log('user Login')
+      return navigate('/myprofil')
+    } else {
+      openModal(<Login onClose={() => openModal()} />)
+    }
   }
+
+  const handleOpenRegistrationWindow = () => {
+    if (user.isLoggedIn) {
+      navigate('/myprofil')
+    } else {
+      openModal(<Registration onClose={() => openModal()} />)
+    }
+  }
+
   return (
     <StyledInitialLayouts>
       <header>
@@ -101,10 +152,16 @@ const InitialLayouts = () => {
         </Zoom>
 
         <div>
-          <NavLink to={DIRECTION_TYPE.login}>Login</NavLink>
           <button
             onClick={() => {
-              openModal(<Registration />)
+              handleOpenLoginWindow()
+            }}
+          >
+            Login
+          </button>
+          <button
+            onClick={() => {
+              handleOpenRegistrationWindow()
             }}
           >
             Registrate
@@ -121,11 +178,18 @@ const InitialLayouts = () => {
         <DetailOfRate horse={horse} text={'Our horses'} />
         <DetailOfRate horse={statistic} text={'Horse statistic'} />
       </section>
+      <section></section>
+      <section className="section">
+        <AboutProject />
+
+        {/* */}
+      </section>
       <section>
         <Information />
       </section>
       <footer>
         <p>@2022PrusakovaIuliia</p>
+        <p>iuliiaprusakova@gmail.com</p>
       </footer>
     </StyledInitialLayouts>
   )

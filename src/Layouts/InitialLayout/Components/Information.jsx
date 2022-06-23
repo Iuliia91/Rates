@@ -1,64 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import redbull from 'assets/images/redbull.png'
-import Fiorentina from 'assets/images/Fiorentina.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import Login from '../../../Scenes/Login'
+import { ModalContext } from '../../../HOC/GlobalModalProvider'
+//import Marquee from 'react-fast-marquee'
 const StyledInformation = styled.div`
-  display: flex;
-  flex-direction: row;
+  max-width: 1500px;
+  margin: auto;
   width: 100%;
-  justify-content: space-around;
-  background: rgb(239, 239, 239);
-  margin-bottom: 30px;
-  position: relative;
-  div {
-    display: flex;
-    flex-direction: row;
+  .img {
+    background: red;
     width: 100%;
-    justify-content: space-around;
-    margin: 40px 0;
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      margin: 0;
-      // padding: 0;
-
-      p {
-        margin: 6px;
-        font-family: playRegular;
-        font-size: 20px;
-      }
-
-      img {
-        width: 40px;
-        padding: 4px;
-      }
-    }
+  }
+  .titel {
+    width: 100%;
+    font-size: 50px;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .img:hover {
+    background: rgba(33, 60, 187);
   }
 `
 
 const Information = () => {
+  const openModal = useContext(ModalContext)
+  const user = useSelector((state) => state.userReducer)
+  const navigate = useNavigate()
+  const handleNavigate = () => {
+    if (user.isLoggedIn) {
+      navigate('/createrate')
+    } else {
+      openModal(<Login onClose={() => openModal()} />)
+    }
+  }
+
   return (
-    <StyledInformation>
-      <div>
-        <section>
-          <h1>Information</h1>
-          <p>Registration</p>
-          <p>Choose horse</p>
-          <p>Choose time</p>
-          <p>WIN</p>
-          <p></p>
-        </section>
-        <section>
-          <h1>Rules</h1>
-          <p>You 18+</p>
-          <p>Security</p>
-        </section>
-        <section>
-          <h1>Our partner</h1>
-          <img src={redbull} />
-          <img src={Fiorentina} />
-        </section>
+    <StyledInformation onClick={() => handleNavigate()}>
+      <div className="img">
+        <p className="titel">PLAY NOW!!!!!</p>
       </div>
     </StyledInformation>
   )

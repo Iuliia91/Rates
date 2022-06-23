@@ -13,7 +13,7 @@ import { ModalContext } from 'HOC/GlobalModalProvider'
 const StyledSlider = styled.div`
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 100%;
   margin: auto;
   box-sizing: border-box;
   display: flex;
@@ -23,9 +23,10 @@ const StyledSlider = styled.div`
   .slider_item {
     display: flex;
     flex-direction: row;
+    height: 900px;
   }
   img {
-    width: 40%;
+    width: 50%;
     padding: 40px;
     margin: auto 0;
     border-radius: 40px;
@@ -36,10 +37,10 @@ const StyledSlider = styled.div`
 
   .active {
     position: absolute;
-    width: 45%;
+
     top: 0;
     right: 0;
-
+    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -100,14 +101,14 @@ const img = [
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const openModal = useContext(ModalContext)
-  useEffect(() => {
+  /* useEffect(() => {
     setInterval(() => {
       setActiveIndex((current) =>
         current === img.length - 1 ? 0 : current + 1
       )
     }, 5000)
     return () => clearInterval()
-  }, [])
+  }, [])*/
   return (
     <StyledSlider>
       <div className="slider_item">
@@ -130,21 +131,7 @@ const Slider = () => {
               <div className="block3">
                 <p
                   onClick={() => {
-                    openModal(
-                      <div>
-                        <header>
-                          <p>Registration</p>
-                          <span
-                            onClick={() => {
-                              openModal()
-                            }}
-                          >
-                            X
-                          </span>
-                        </header>
-                        <Registration close={() => openModal()} />
-                      </div>
-                    )
+                    openModal(<Registration onClose={() => openModal()} />)
                   }}
                 >
                   Registration
