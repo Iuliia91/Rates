@@ -14,7 +14,7 @@ const StyledHeaderMenu = styled.div`
   }
 
   .active {
-    color: green;
+    color: rgba(33, 60, 187);
   }
 `
 
@@ -26,9 +26,6 @@ const HeaderMenu = () => {
       </NavLink>
       <NavLink to={DIRECTION_TYPE.createrate} activeclassname={'active'}>
         Create rates
-      </NavLink>
-      <NavLink to={DIRECTION_TYPE.history} activeclassname={'active'}>
-        History of rates
       </NavLink>
     </StyledHeaderMenu>
   )

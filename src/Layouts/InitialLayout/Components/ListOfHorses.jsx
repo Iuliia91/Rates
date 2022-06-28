@@ -58,15 +58,15 @@ const listOFHorses = [
 ]
 
 export const Horses = (props) => {
-  const handleID = (id) => {
-    console.log(id)
-  }
   return (
     <>
       {' '}
       {listOFHorses.map((item, index) => (
         <div key={item.id}>
-          <div className="main" onClick={() => props.handleID(item.id)}>
+          <div
+            className="main"
+            onClick={() => (props.handleID ? props.handleID(item.id) : '')}
+          >
             <img src={item.images} />
             <p>{item.name}</p>
           </div>
