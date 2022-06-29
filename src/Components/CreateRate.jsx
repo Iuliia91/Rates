@@ -5,29 +5,48 @@ import { Horses } from '../Layouts/InitialLayout/Components/ListOfHorses'
 import DatePicker from 'react-datepicker'
 
 const StyledCreateRate = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  justify-content: space-evenly;
+  position: relative;
+  .create_rate {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-evenly;
+    margin-bottom: 20vmin;
+  }
   p {
     margin: 0;
   }
   .list {
-    position: absolute;
-    background: pink;
+    display: flex;
+
+    margin: 0 auto;
+    z-index: 4000;
+    margin-top: 80px;
+  }
+  .list > div {
+    display: flex;
+    flex-direction: row;
+    /*
     display: grid;
     gap: 10px 10px;
-    grid-template-columns: 300px 6fr;
-    grid-template-row: 200px 2fr;
-    z-index: 4000;
-    /* height: 50vmax;
-    width: 70vmax;*/
+    grid-template-columns: 150px 6fr;
+    grid-template-row: 150px 2fr;*/
+    margin: 20px auto;
+  }
+
+  .main {
+    text-align: center;
+  }
+  .options {
+    margin: auto;
   }
 
   img {
     width: 150px;
   }
-
+  .block {
+    position: relative;
+  }
   date:hover {
     background: red;
   }
@@ -54,15 +73,33 @@ const StyledCreateRate = styled.div`
     border: 1px solid #ccc;
   }
 
+  .create_rate_titel {
+    font-family: 'playRegular';
+    font-size: 40px;
+    font-weight: 500;
+    color: rgba(33, 60, 187);
+  }
+
   @media screen and (max-width: 800px) {
-    flex-direction: column;
-    margin: auto;
-    text-align: center;
+    .create_rate {
+      flex-direction: column;
+      margin: auto;
+      text-align: center;
+    }
+    .list > div {
+      display: grid;
+      gap: 10px 10px;
+      grid-template-columns: 150px 6fr;
+      grid-template-row: 150px 2fr;
+      margin: 20px auto;
+    }
   }
 `
 
 const CreateRate = () => {
   const [open, setOpen] = useState(false)
+  const [openSortOfDate, setOpenSortOfDate] = useState(false)
+  const [openSortOfTime, setOpenSortOfTime] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
   const [time, setTime] = useState(new Date().getTime())
   const handleID = (id) => {
@@ -84,34 +121,66 @@ const CreateRate = () => {
 
   return (
     <StyledCreateRate>
-      <p onClick={() => setOpen(!open)}>Choose horse</p>
-      {open && (
-        <div className="list">
-          <Horses handleID={handleID} />
+      <div className="create_rate">
+        <div className="block">
+          <p onClick={() => setOpen(!open)} className="create_rate_titel">
+            Choose horse
+          </p>
         </div>
-      )}
 
-      <div className="date date_picker">
-        <p onClick={() => {}}>Selecte date</p>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          minDate={new Date()}
-        />
+        <div className="date date_picker">
+          <p
+            onClick={() => {
+              setOpenSortOfDate(!openSortOfDate)
+            }}
+            className="create_rate_titel"
+          >
+            Selecte date
+          </p>
+        </div>
+        <div className="date date_picker">
+          {' '}
+          <p
+            onClick={() => {
+              setOpenSortOfTime(!openSortOfTime)
+            }}
+            className="create_rate_titel"
+          >
+            Selecte time
+          </p>
+        </div>
       </div>
-      <div className="date date_picker">
-        {' '}
-        <p onClick={() => {}}>Selecte time</p>
-        <DatePicker
-          selected={time}
-          onChange={(date) => setTime(date)}
-          showTimeSelect
-          showTimeSelectOnly
-          timeIntervals={15}
-          filterTime={filterPassedTime}
-          timeCaption="Time"
-          dateFormat="h:mm aa"
-        />
+      <div className="options">
+        {open && (
+          <div className="list">
+            <div>
+              <Horses handleID={handleID} />
+            </div>
+          </div>
+        )}
+        {openSortOfDate && (
+          <div className="list">
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              minDate={new Date()}
+            />
+          </div>
+        )}
+        {openSortOfTime && (
+          <div className="list">
+            <DatePicker
+              selected={time}
+              onChange={(date) => setTime(date)}
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={15}
+              filterTime={filterPassedTime}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+            />
+          </div>
+        )}
       </div>
     </StyledCreateRate>
   )
