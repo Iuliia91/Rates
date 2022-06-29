@@ -16,6 +16,13 @@ const StyledHeaderMenu = styled.div`
   .active {
     color: rgba(33, 60, 187);
   }
+
+  @media screen and (max-width: 500px) {
+    a {
+      font-size: 16px;
+      padding-right: 11px;
+    }
+  }
 `
 
 const HeaderMenu = () => {

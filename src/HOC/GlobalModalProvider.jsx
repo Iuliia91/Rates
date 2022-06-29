@@ -38,6 +38,12 @@ const StyledGlobalModalProvider = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 800px) {
+    .modal {
+      width: 100%;
+    }
+  }
 `
 
 const GlobalModalProvider = (props) => {

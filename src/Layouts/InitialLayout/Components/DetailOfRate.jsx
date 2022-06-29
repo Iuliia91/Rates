@@ -37,6 +37,19 @@ const StyledDetailOfHorse = styled.div`
       color: white;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    img {
+      margin: 0;
+      width: 170px;
+      height: 100px;
+    }
+  }
 `
 
 const DetailOfRate = (props) => {

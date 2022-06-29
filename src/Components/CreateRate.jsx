@@ -13,10 +13,15 @@ const StyledCreateRate = styled.div`
     margin: 0;
   }
   .list {
+    position: absolute;
+    background: pink;
     display: grid;
     gap: 10px 10px;
     grid-template-columns: 300px 6fr;
     grid-template-row: 200px 2fr;
+    z-index: 4000;
+    /* height: 50vmax;
+    width: 70vmax;*/
   }
 
   img {
@@ -49,21 +54,10 @@ const StyledCreateRate = styled.div`
     border: 1px solid #ccc;
   }
 
-  .react-datepicker__time-box
-    ul.react-datepicker__time-list
-    ::-webkit-scrollbar {
-    width: 3px;
-    height: 8px;
-    background-color: #143861;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #843465;
-    border-radius: 9em;
-    box-shadow: inset 1px 1px 10px #f3faf7;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #253861;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
   }
 `
 
@@ -73,6 +67,7 @@ const CreateRate = () => {
   const [time, setTime] = useState(new Date().getTime())
   const handleID = (id) => {
     console.log(id)
+    setOpen(false)
   }
 
   const filterPassedTime = (time) => {

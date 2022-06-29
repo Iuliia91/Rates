@@ -103,7 +103,9 @@ const StyledInitialLayouts = styled.div`
   width:80%;
   margin:auto;
 }
-  
+.block_ofInf{
+  margin-bottom:8em;
+}
 section{
   width:100%;
 }
@@ -118,6 +120,15 @@ section{
       color: grey;
 
       margin: 0;
+    }
+  }
+
+  @media screen and (max-width:800px){
+    main{
+      height: 40em;
+    }
+    .block_ofInf{
+      flex-direction:column;
     }
   }
 `
@@ -174,11 +185,11 @@ const InitialLayouts = () => {
           <Slider />
         </div>
       </main>
-      <section>
+      <section className="block_ofInf">
         <DetailOfRate horse={horse} text={'Our horses'} />
         <DetailOfRate horse={statistic} text={'Horse statistic'} />
       </section>
-      <section></section>
+
       <section className="section">
         <AboutProject />
 

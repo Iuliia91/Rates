@@ -39,6 +39,12 @@ const StyledAboutProject = styled.div`
   .conteent>p{
     font-size:22px;
   }
+
+  @media screen and (max-width:800px){
+
+    display:none;
+
+  }
 `
 
 const AboutProject = () => {
