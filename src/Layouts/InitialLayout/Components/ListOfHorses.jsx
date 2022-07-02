@@ -68,7 +68,7 @@ export const Horses = (props) => {
         <div key={item.id}>
           <div
             className="main"
-            onClick={() => (props.handleID ? props.handleID(item.id) : '')}
+            onClick={() => (props.handleID ? props.handleID(item) : '')}
           >
             <img src={item.images} />
             <p>{item.name}</p>

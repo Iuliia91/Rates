@@ -7,7 +7,7 @@ const initialState = {
 
 const createRates = createReducer(initialState, (builder) => {
   builder.addCase(userCreateRates, (state, action) => {
-    console.log(action.payload)
+    state.rates.push(action.payload)
   })
 })
 

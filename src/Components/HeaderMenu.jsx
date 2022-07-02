@@ -6,21 +6,24 @@ const StyledHeaderMenu = styled.div`
   display: flex;
   flex-direction: row;
   a {
-    padding-right: 24px;
+    padding-right: 1em;
     text-decoration: none;
     color: white;
     font-size: 30px;
     font-family: 'playRegular';
+    white-space: nowrap;
   }
 
   .active {
     color: rgba(33, 60, 187);
+    white-space: nowrap;
   }
 
   @media screen and (max-width: 500px) {
     a {
       font-size: 16px;
       padding-right: 11px;
+      white-space: nowrap;
     }
   }
 `

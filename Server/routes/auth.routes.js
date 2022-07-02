@@ -66,7 +66,7 @@ router.post(
     try {
       const { email, password, userName } = request.body
       const user = await User.findOne({ email })
-      console.log(user)
+
       if (!user) {
         return response.status(404).json({ message: 'User not found' })
       }

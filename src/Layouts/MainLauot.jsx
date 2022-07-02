@@ -73,9 +73,6 @@ const MainLayout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <p>@PrusakovaIuliia</p>
-      </footer>
     </StyledMainLayouts>
   )
 }
