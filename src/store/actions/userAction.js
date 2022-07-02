@@ -17,7 +17,7 @@ export const userLoggedIn = createAsyncThunk(
           userName: item.userName,
         }
       )
-      console.log(response)
+
       return { ...response.data.user }
     } catch (e) {
       alert(e.response.data.message)
