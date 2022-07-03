@@ -19,7 +19,7 @@ const StyledDetailOfHorse = styled.div`
     display: flex;
   }
   p {
-    font-size: 35px;
+    font-size: 2em;
     font-weight: 900;
     color: grb(75, 75, 75);
     font-family: playRegular;
@@ -46,8 +46,11 @@ const StyledDetailOfHorse = styled.div`
     margin-bottom: 50px;
     img {
       margin: 0;
-      width: 170px;
-      height: 100px;
+      width: 8em;
+      height: 6em;
+    }
+    p {
+      font-size: 16px;
     }
   }
 `

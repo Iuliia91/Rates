@@ -19,10 +19,10 @@ const StyledHeaderMenu = styled.div`
     white-space: nowrap;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     a {
       font-size: 16px;
-      padding-right: 11px;
+      padding-right: 5px;
       white-space: nowrap;
     }
   }

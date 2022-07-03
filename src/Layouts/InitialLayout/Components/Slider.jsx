@@ -104,6 +104,12 @@ const StyledSlider = styled.div`
     }
 
     img {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    img {
       width: 90%;
     }
   }

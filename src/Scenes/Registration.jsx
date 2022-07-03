@@ -54,6 +54,17 @@ const StyledRegistrationHolder = styled.div`
       background: green;
     }
   }
+  @media screen and (max-width:1200px){
+    width: 80%;
+    form{
+      padding:5px 20px;
+      width: 90%;
+      margin: auto;
+    }
+    p{
+      font-size: 1em;
+    }
+
 `
 
 const initialData = {
