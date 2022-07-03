@@ -48,6 +48,13 @@ const StyledMainLayouts = styled.div`
       transform: translate(-50%, -50%) }
     }
   }
+  @media screen and (max-width:500px){
+
+header section img{
+  width:3em;
+  height:3em;
+}
+
 `
 const MainLayout = () => {
   return (
@@ -66,9 +73,6 @@ const MainLayout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <p>@PrusakovaIuliia</p>
-      </footer>
     </StyledMainLayouts>
   )
 }

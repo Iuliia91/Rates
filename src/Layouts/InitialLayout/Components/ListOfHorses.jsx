@@ -48,25 +48,28 @@ const StyledDiv = styled.div`
   border-radius: 20px;
 `
 
+const StyledHorses = styled.div`
+  background: pink;
+`
 const listOFHorses = [
   { name: 'Black Horse', images: Black, id: 'Black' },
-  { name: 'Green Horse', images: Green, id: 'Green' },
+
   { name: 'Red Horse', images: Red, id: 'Red' },
   { name: 'Pink Horse', images: Pink, id: 'Pink' },
-  { name: 'Blue Horse', images: Blue, id: 'Blue' },
+
   { name: 'Yellow Horse', images: Yellow, id: 'Yellow' },
 ]
 
 export const Horses = (props) => {
-  const handleID = (id) => {
-    console.log(id)
-  }
   return (
     <>
       {' '}
       {listOFHorses.map((item, index) => (
         <div key={item.id}>
-          <div className="main" onClick={() => props.handleID(item.id)}>
+          <div
+            className="main"
+            onClick={() => (props.handleID ? props.handleID(item) : '')}
+          >
             <img src={item.images} />
             <p>{item.name}</p>
           </div>

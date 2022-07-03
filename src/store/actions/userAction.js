@@ -8,7 +8,6 @@ export const userLoggedIn = createAsyncThunk(
   USER_ACTION.loggIn,
 
   async (item) => {
-    console.log(item)
     try {
       const response = await axios.post(
         'http://localhost:5000/api/auth/login',
@@ -18,10 +17,9 @@ export const userLoggedIn = createAsyncThunk(
           userName: item.userName,
         }
       )
-      console.log(response)
+
       return { ...response.data.user }
     } catch (e) {
-      console.log(e)
       alert(e.response.data.message)
     }
   }
@@ -41,9 +39,8 @@ export const userRegistration = createAsyncThunk(
         }
       )
 
-      return response
+      return response.data.user
     } catch (e) {
-      console.log(e.response.data.message, 'we here')
       alert(e.response.data.message)
     }
   }

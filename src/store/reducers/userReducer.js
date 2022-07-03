@@ -8,7 +8,6 @@ import { createReducer } from '@reduxjs/toolkit'
 
 const initialState = {
   user: {},
-
   isLoggedIn: false,
 }
 

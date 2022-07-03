@@ -42,7 +42,7 @@ const StyledGlobalModalProvider = styled.div`
 
 const GlobalModalProvider = (props) => {
   const [modalContext, setModalContext] = useState()
-
+  console.log(modalContext)
   return (
     <React.Fragment>
       {!!modalContext && (

@@ -62,9 +62,13 @@ const StyledSlider = styled.div`
     }
   }
 
+  .img {
+    width: 100%;
+  }
+
   .block3 {
     display: block;
-    height: 50px;
+
     width: 270px;
     background: rgba(0, 6, 159);
     border-radius: 30px;
@@ -73,7 +77,7 @@ const StyledSlider = styled.div`
       font-size: 30px;
       font-family: 'playRegular';
       color: white;
-      padding: 0;
+      padding: 10px 0;
       text-align: center;
       margin: 0 auto;
     }
@@ -89,6 +93,19 @@ const StyledSlider = styled.div`
   .nonActive {
     display: none;
     transform: translateX(100%);
+  }
+
+  @media screen and (max-width: 800px) {
+    .active {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: center;
+    }
+
+    img {
+      width: 90%;
+    }
   }
 `
 

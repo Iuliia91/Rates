@@ -6,15 +6,25 @@ const StyledHeaderMenu = styled.div`
   display: flex;
   flex-direction: row;
   a {
-    padding-right: 24px;
+    padding-right: 1em;
     text-decoration: none;
     color: white;
     font-size: 30px;
     font-family: 'playRegular';
+    white-space: nowrap;
   }
 
   .active {
-    color: green;
+    color: rgba(33, 60, 187);
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 500px) {
+    a {
+      font-size: 16px;
+      padding-right: 11px;
+      white-space: nowrap;
+    }
   }
 `
 
@@ -26,9 +36,6 @@ const HeaderMenu = () => {
       </NavLink>
       <NavLink to={DIRECTION_TYPE.createrate} activeclassname={'active'}>
         Create rates
-      </NavLink>
-      <NavLink to={DIRECTION_TYPE.history} activeclassname={'active'}>
-        History of rates
       </NavLink>
     </StyledHeaderMenu>
   )

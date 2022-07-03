@@ -18,7 +18,7 @@ const AboutUser = () => {
   const [foto, setFoto] = useState('')
   const user = useSelector((state) => state.userReducer)
   const rates = useSelector((state) => state.createRates.rates)
-  console.log(rates)
+  console.log(user)
   return (
     <StyledAboutUser>
       <section className="welcome">
