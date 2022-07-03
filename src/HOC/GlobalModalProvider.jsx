@@ -41,7 +41,9 @@ const StyledGlobalModalProvider = styled.div`
 
   @media screen and (max-width: 800px) {
     .modal {
+      max-width: 600px;
       width: 100%;
+      padding: 0;
     }
   }
 `

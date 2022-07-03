@@ -56,10 +56,17 @@ div{
       background: green;
     }
 
-    @media screen and (max-width:800px){
-      width: 100%;
-
+      
+      
     }
+
+    @media screen and (max-width:1200px){
+      form{
+        padding:5px 20px;
+        width: 90%;
+        margin: auto;
+      }
+
 `
 
 const initialData = {

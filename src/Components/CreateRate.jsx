@@ -233,7 +233,7 @@ const CreateRate = () => {
   const [time, setTime] = useState()
   const handleID = (item) => {
     setChooseHorse(item)
-    console.log(item)
+
     setOpen(false)
   }
 

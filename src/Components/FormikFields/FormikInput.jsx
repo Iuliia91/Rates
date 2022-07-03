@@ -11,7 +11,7 @@ const StyledFormikInput = styled.div`
     border-color: ${(props) => (props.error ? 'red' : 'white')};
     padding: 15px 60px;
     margin: 10px;
-    //border-radius: 20px;
+
     ::placeholder {
       color: #ddd;
       opacity: 1;
@@ -27,14 +27,15 @@ const StyledFormikInput = styled.div`
   .errorMessagerHolder {
     color: #d93025;
     font-size: 20px;
-    // padding-left: 8px;
-    //position: absolute;
     right: 0;
     width: 100%;
-    //bottom: -1em;
-    /* position: absolute;
-    padding-top: -10px;
-    color: red;*/
+  }
+
+  @media screen and (max-width: 1000px) {
+    input {
+      width: 100%;
+      padding: 1em 2em;
+    }
   }
 `
 
