@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-
+import ListOfRatesAddByUser from './ListOfRatesAddByUser'
 const StyledAboutUser = styled.div`
   .welcome > p {
     text-align: center;
@@ -15,7 +15,6 @@ const StyledAboutUser = styled.div`
 `
 
 const AboutUser = () => {
-  const [foto, setFoto] = useState('')
   const user = useSelector((state) => state.userReducer)
   const rates = useSelector((state) => state.createRates.rates)
   console.log(user)
@@ -28,7 +27,7 @@ const AboutUser = () => {
         {rates.length === 0 ? (
           <p>Your dont have any history of rates</p>
         ) : (
-          <p>You won</p>
+          <ListOfRatesAddByUser />
         )}
       </section>
       <div></div>

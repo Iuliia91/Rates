@@ -253,8 +253,13 @@ const CreateRate = () => {
   }
 
   const handleAddRate = () => {
+    console.log(typeof startDate)
     dispatch(
-      userCreateRates({ horese: chooseHorse, date: startDate, time: time })
+      userCreateRates({
+        horese: chooseHorse,
+        date: startDate,
+        time: `${time.getHours()}:${time.getMinutes()}`,
+      })
     )
     setStartDate('')
     setChooseHorse('')
@@ -364,7 +369,7 @@ const CreateRate = () => {
               }}
               showTimeSelect
               showTimeSelectOnly
-              timeIntervals={15}
+              timeIntervals={360}
               minDate={new Date()}
               filterTime={filterPassedTime}
               dateFormat="h:mm aa"
