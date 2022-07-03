@@ -1,8 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Black from 'assets/images/listOfHorses/black.jpg'
-import Green from 'assets/images/listOfHorses/green.png'
-import Blue from 'assets/images/listOfHorses/blue.png'
 import Pink from 'assets/images/listOfHorses/pink.png'
 import Red from 'assets/images/listOfHorses/red.png'
 import Yellow from 'assets/images/listOfHorses/yellowpng.png'
@@ -48,10 +46,7 @@ const StyledDiv = styled.div`
   border-radius: 20px;
 `
 
-const StyledHorses = styled.div`
-  background: pink;
-`
-const listOFHorses = [
+export const listOFHorses = [
   { name: 'Black Horse', images: Black, id: 'Black' },
 
   { name: 'Red Horse', images: Red, id: 'Red' },

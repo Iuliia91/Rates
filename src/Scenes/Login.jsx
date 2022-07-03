@@ -74,9 +74,9 @@ div{
 `
 
 const initialData = {
-  userName: 'anna',
-  email: 'annaprusakova@gmail.com',
-  password: 'Zaq123Xsw456',
+  userName: '',
+  email: '',
+  password: '',
 }
 
 const Login = ({ onClose }) => {
