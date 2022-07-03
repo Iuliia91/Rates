@@ -38,11 +38,24 @@ const StyledGlobalModalProvider = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    .modal {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .modal {
+      width: 100%;
+      padding: 10px 0px;
+    }
+  }
 `
 
 const GlobalModalProvider = (props) => {
   const [modalContext, setModalContext] = useState()
-  console.log(modalContext)
+
   return (
     <React.Fragment>
       {!!modalContext && (

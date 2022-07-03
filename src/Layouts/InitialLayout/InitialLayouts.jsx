@@ -52,7 +52,7 @@ const StyledInitialLayouts = styled.div`
     & div {
       display: flex;
       flex-direction: row;
-      margin-right: 30px;
+     margin-right: 30px;
     }
   }
 
@@ -130,6 +130,22 @@ section{
     .block_ofInf{
       flex-direction:column;
     }
+    .information{
+      margin:0;
+    }
+  }
+
+  @media screen and (max-width: 500px){
+    header{
+      img{
+        width:30%;
+      }
+      button{
+      font-size: 20px;
+      margin-right: 0;
+    }
+    }
+    
   }
 `
 
@@ -195,7 +211,7 @@ const InitialLayouts = () => {
 
         {/* */}
       </section>
-      <section>
+      <section className="information">
         <Information />
       </section>
       <footer>

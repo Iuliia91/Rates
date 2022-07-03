@@ -30,7 +30,7 @@ div{
       text-align: center;
       padding-top: 2em;
       font-family: playRegular;
-      font-size: 30px;
+      font-size: 2em;
       font-weight: bold;
       color: blue;
     }
@@ -61,10 +61,14 @@ div{
     }
 
     @media screen and (max-width:1200px){
+      width: 80%;
       form{
         padding:5px 20px;
         width: 90%;
         margin: auto;
+      }
+      p{
+        font-size: 1em;
       }
 
 `

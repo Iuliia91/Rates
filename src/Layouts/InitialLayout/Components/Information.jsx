@@ -23,6 +23,13 @@ const StyledInformation = styled.div`
   .img:hover {
     background: rgba(33, 60, 187);
   }
+
+  @media screen and (max-width: 800px) {
+    .titel {
+      padding: 0;
+      font-size: 2.5em;
+    }
+  }
 `
 
 const Information = () => {
