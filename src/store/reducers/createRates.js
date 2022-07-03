@@ -1,6 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { userCreateRates } from '../actions/userCreateRates'
 import randomwinner from '../actions/randomWinner'
+import objectOfRace from '../../helpers/objectOfRace'
 const initialState = {
   rates: [],
 }
@@ -8,11 +9,17 @@ const initialState = {
 const createRates = createReducer(initialState, (builder) => {
   builder
     .addCase(userCreateRates, (state, action) => {
-      console.log(action.payload.date)
       state.rates.push(action.payload)
     })
     .addCase(randomwinner, (state, action) => {
-      console.log(action.payload)
+      state.rates.map((item) => {
+        objectOfRace.time.map((objTime) => {
+          console.log(objTime)
+          if (objTime === item.time.getTime()) {
+            console.log('found')
+          }
+        })
+      })
     })
 })
 

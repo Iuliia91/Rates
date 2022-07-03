@@ -5,7 +5,7 @@ import { Horses } from '../Layouts/InitialLayout/Components/ListOfHorses'
 import DatePicker from 'react-datepicker'
 import { useDispatch } from 'react-redux'
 import { userCreateRates } from '../store/actions/userCreateRates'
-
+import randomwinner from '../store/actions/randomWinner'
 const StyledCreateRate = styled.div`
   position: relative;
   .create_rate {
@@ -253,18 +253,20 @@ const CreateRate = () => {
   }
 
   const handleAddRate = () => {
-    console.log(typeof startDate)
+    console.log(typeof time)
     dispatch(
       userCreateRates({
         horese: chooseHorse,
         date: startDate,
-        time: `${time.getHours()}:${time.getMinutes()}`,
+        time: time,
       })
     )
+    dispatch(randomwinner())
     setStartDate('')
     setChooseHorse('')
     setTime('')
   }
+
   return (
     <StyledCreateRate>
       <div className="create_rate">
